@@ -1,13 +1,19 @@
-	// Look for the Photo Element, if visbility is hidden, resort to default image.
-  
+	// Wait for the element to appear
 	waitForElementToDisplay(".eapps-facebook-feed-photos-container",function(){
-  // What you want to execute after the element has been found
 		let x = document.querySelector('.eapps-facebook-feed-photos-container');
 		let y = getComputedStyle(x);
+		let defaultFbFeedImage = document.querySelector('.defaultFbFeedImage');
+		let fbFeed = document.querySelector('#eapps-facebook-feed-1');
+	
+
 		if(y.visibility === 'hidden') {
 			console.log('No image');
+			defaultFbFeedImage.classList.add('active');
+			fbFeed.classList.add('active');
 		} else {
 			console.log('Image is there... duh');
+			defaultFbFeedImage.classList.remove('active');
+			fbFeed.classList.remove('active');
 		}
 	},1000,9000);
 
